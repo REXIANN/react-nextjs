@@ -13,8 +13,24 @@ pages 폴더에 만드는 파일은 자동으로 컴파일되어 route가 된다
 CSR은 clinet-side-render의 약자로 쉽게 말해 클라이언트의 브라우저가 모든 UI를 만든다는 뜻이다. 브라우저는 js를 받고 클라이언트에 도착한 js가
 사이트를 빌드하는 것이다.
 
-SSR은 server-side-render 의 야갖이다. next.js는 정적으로 페이지를 생성해놓는다. 
+SSR은 server-side-render 의 약자이다. next.js는 정적으로 페이지를 생성해놓는다. 유저가 접근할 때 컴포넌트의 초기 상태는 HTML로 렌더링되어 있다.
+따라서 유저가 접근할 때 백지화면을 보지 않게 된다. 
 
+Nextjs가 HTML 페이지들을 미리 생성해두고 유저에게 보여주며, React는 다운로드 된 후 프론트엔드에 나타난 뒤 주도권을 가지게 된다(useState 등을 사용할 수 있게된다).
+이를 hydrate 라고 한다.
+
+Nextjs에서 기존의 Link를 사용하는 경우 정적파일 생성을 위해 다음과 같이 작성해야 한다.
+```javascript
+import Link from 'next/link';
+
+function App() {
+  return (
+    <Link href="https://google.com">
+      <a>Go Google</a>
+    </Link>
+  )
+}
+```
 
 ## App Component & App Page
 Next는 리액트와 달리 페이지별로 스타일링을 생각해야 한다. 다시 말해 `style jsx global` 을 사용하더라도 해당 '페이지' 내에서만 전역적으로 스타일링이 된다.
