@@ -14,7 +14,7 @@ export default function NavBar() {
       </Link>
       <style jsx>{`
         nav { 
-          background-color: red;
+          background-color: gray;
         }
         a {
           text-decoration: none;
@@ -26,3 +26,4 @@ export default function NavBar() {
     </nav>
   );
 }
+
