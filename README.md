@@ -49,3 +49,8 @@ Component는 렌더링 하고자 하는 페이지이다. 내가 렌더링하고�
 시도한다면 `Global CSS cannot be imported from files other than your Custom <App>` 이라는 경고를 보게 된다.
 
 따라서 페이지나 컴포넌트에 CSS를 임포트 하고 싶다면 그건 반드시 모듈이 되어야만 한다.
+
+# SECTION 2
+## Layout
+_app의 경우 구글애널리틱스나 다른 수많은 임포트가 들어가야 하므로 컴포넌트 자체가 커지는 것은 좋지 않다.
+따라서 Layout 이라는 추가적인 컴포넌트를 만들어서 해당 부분으로 분리해준다.

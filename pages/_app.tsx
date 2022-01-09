@@ -1,13 +1,13 @@
 import * as React from 'react'
 import '../styles/globals.css'
-import NavBar from "../Components/NavBar";
+import Layout from "../Components/Layout";
 
 export default function App({ Component, pageProps }) {
   return (
     <div>
-      <NavBar />
-      <Component />
-      <span>Hiii</span>
+      <Layout>
+        <Component />
+      </Layout>
     </div>
   )
 }

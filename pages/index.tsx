@@ -1,15 +1,10 @@
-import NavBar from '../Components/NavBar'
-
+import * as React from 'react'
+import Seo from '../Components/Seo'
 export default function Home() {
   return (
     <div>
-      <NavBar />
+      <Seo title='Home' />
       <h1>Hello</h1>
-      <style jsx global>{`
-      a {
-        color: green;
-      }
-      `}</style>
     </div>
   )
 }
