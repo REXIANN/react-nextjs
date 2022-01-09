@@ -73,3 +73,24 @@ async redirects의 permanent 여부에 따라 브라우저나 검색 엔진이 �
 뒤에 `*`을 추가하면 해당 에스터리스크 뒤에 있는 모든 경로를 그대로 복사해서 붙여넣는다.
 
 redirect는 url을 바꾸지만(유저가 변경을 알아차리지만) rewirte는 url을 바꾸지 않으면서 변경시킨다. 
+
+## Get Server Side Props
+우리가 서버사이드 렌더링을 할지 결정할 수도 있다. 새로 고침을 하면 Nextjs가 사전생성을 하는 걸 알고 있다. 
+어떤 웹사이트에서는 html을 보여주지 않고 데이터 등 모든것을 가져온 후에 유저에게 보여주기를 원할 수 있다. 
+그런 경우 get server side props 를 사용할 수 있다. 간단하게 페이지 컴포넌트에서 `getServerSideProps` 라는 async 함수를 export 하면 된다.
+이 `getServerSideProps`라는 이름은 굉장히 중요하다. 다른걸로 바꿀 수 없으니 주의하자.
+
+이 메서드 안에 쓰는 코드는 서버에서 돌아가게 된다. 클라이언트 사이드가 아닌 서버 사이드에서 동작하게 된다.
+이걸 사용해서 API Key 를 여기에 사용할 수도 있다. 왜냐하면 해당 메서드는 오직 백엔드에서만 실행되기 때문이다.
+
+`getServerSideProps` 메서드는 오브젝트를 반환하는데 그 오브젝트는 props라는 오브젝트를 가진다.
+props 안에는 원하는 데이터들을 넣을 수 있다.
+
+우리가 홈페이지(index)에 접근하면...
+1. Nextjs가 index에 있는 Home 컴포넌트를 찾아서 _app에 있는 Component 자리에 넣는다
+2. gssp 메서드를 실행한다
+3. 메서드의 결과를 가져다가 pageProps에 넣는다
+
+`getServerSideProps` 안에서는 절대경로만 취급하니 유념하자. 
+
+Nextjs는 프론트엔드만을 다루지 않는다. 서버의 기능도 한다.
