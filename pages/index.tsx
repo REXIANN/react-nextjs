@@ -16,12 +16,7 @@ interface Props {
 export default function Home({ results }: Props) {
   const router = useRouter();
   const handleClick = (id: number, title: string) => {
-    router.push({
-      pathname: `/movies/${id}`,
-      query: {
-        title
-      }
-    }, `/movies/${id}`)
+    router.push(`/movies/${title}/${id}`)
   }
 
   return (
@@ -35,12 +30,7 @@ export default function Home({ results }: Props) {
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt='movie img'
           />
-          <Link  href={{
-            pathname: `/movies/${movie.id}`,
-            query: {
-              title: movie.original_title
-            }
-          }} as={`/movies/${movie.id}`}>
+          <Link  href={`/movies/${movie.original_title}/}${movie.id}`}>
             <a>
               <h4>{movie.original_title}</h4>
             </a>
